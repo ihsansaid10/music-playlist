@@ -3,7 +3,7 @@ const playlist = [
  {title:"Beach Bunny - Prom Queen",src:"music/Beach Bunny - Prom Queen (Official Music Video).mp3"},
  {title:"For Revenge X Stereo Wall - Jakarta Hari Ini",src:"music/For Revenge X Stereo Wall - Jakarta Hari Ini (Official Video).mp3"},
  {title:"Gigi Perez - Sailor Song",src:"music/Gigi Perez - Sailor Song (Lyrics).mp3"},
- {title:"Hayya Hayya FIFA 2022",src:"music/Hayya Hayya (Better Together) _ FIFA World Cup 2022™ Official Soundtrack.mp3"},
+ {title:"FIFA - Hayya Hayya (Better Together)",src:"music/Hayya Hayya (Better Together) _ FIFA World Cup 2022™ Official Soundtrack.mp3"},
  {title:"JVKE - her",src:"music/JVKE - her (official lyric video).mp3"},
  {title:"Lana Del Rey - Summertime Sadness",src:"music/Lana Del Rey - Summertime Sadness (Official Music Video).mp3"},
  {title:"Nadin Amizah - Bertaut",src:"music/Nadin Amizah - Bertaut (Official Music Video).mp3"},
@@ -13,6 +13,10 @@ const playlist = [
  {title:"Ravyn Lenae - Love Me Not",src:"music/Ravyn Lenae - Love Me Not.mp3"},
  {title:"Justin Bieber - Peaches ft. Daniel Caesar, Giveon",src:"music/Justin Bieber - Peaches ft. Daniel Caesar, Giveon.mp3"},
  {title:"Idgitaf - Sedia Aku Sebelum Hujan",src:"music/Idgitaf - Sedia Aku Sebelum Hujan.mp3"},
+ {title:"The Red Army - Glory, Glory, Man. United",src:"music/Glory, Glory, Man. United.mp3"},
+ {title:"Hindia - Secukupnya",src:"music/Hindia - Secukupnya.mp3"},
+ {title:"John Denver - Take Me Home",src:"music/John Denver - Take Me Home.mp3"},
+ {title:"Where'd All The Time Go - Dr. Dog",src:"music/Where'd All The Time Go_ - Dr. Dog.mp3"},
  {title:"She & Him - I Thought I Saw Your Face Today",src:"music/She & Him - I Thought I Saw Your Face Today (Official Lyric Video).mp3"}
 ];
 
@@ -140,3 +144,4 @@ function renderTable(){
     songTable.appendChild(row);
   });
 }
+
