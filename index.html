@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Playlist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="batik-bg"></div>
+
+<div id="app">
+  <div id="viewer-container"></div>
+  <div class="playlist-table">
+  <table id="songTable"></table>
+</div>
+
+  <div class="player">
+    <div class="track-title" id="trackTitle">Title</div>
+    
+
+    <div class="controls">
+      <button id="shuffleBtn">🔀</button>
+      <button id="prevBtn">⏮</button>
+      <button id="playBtn">▶</button>
+      <button id="nextBtn">⏭</button>
+
+      <div class="progress">
+        <span id="currentTime">0:00</span>
+        <input type="range" id="progressBar" value="0">
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="volume">🔊 <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1"></div>
+    </div>
+  </div>
+</div>
+
+<audio id="audio"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.146.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.146.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

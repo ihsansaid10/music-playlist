@@ -1,0 +1,71 @@
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
+body{background:#121212;color:#fff;overflow:hidden}
+#app{height:100vh;display:flex;flex-direction:column}
+
+#viewer-container{flex:1;position:relative}
+
+.player{
+  height:130px;
+  background:#181818;
+  border-top:1px solid #333;
+  padding:10px 15px;
+}
+
+.track-title{font-weight:600;margin-bottom:6px}
+
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.controls button{background:none;border:none;color:white;font-size:18px;cursor:pointer}
+.controls button:hover{color:#1db954}
+
+.progress{display:flex;align-items:center;gap:6px;flex:1}
+.progress input{flex:1}
+.volume input{width:80px}
+
+.batik-bg{
+  position:fixed;inset:0;
+  background:
+    linear-gradient(45deg,#1db95422 25%,transparent 25%),
+    linear-gradient(-45deg,#1db95422 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#1db95422 75%),
+    linear-gradient(-45deg,transparent 75%,#1db95422 75%);
+  background-size:40px 40px;
+  animation:move 12s linear infinite;
+  opacity:.12;z-index:-1;
+}
+
+@keyframes move{
+  from{background-position:0 0,0 20px,20px -20px,-20px 0}
+  to{background-position:80px 80px,80px 100px,100px 60px,60px 80px}
+}
+
+.playlist-table{
+  max-height:200px;
+  overflow-y:auto;
+  background:#0f0f0f;
+  border-top:1px solid #222;
+}
+
+.playlist-table table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+
+.playlist-table tr{
+  cursor:pointer;
+}
+
+.playlist-table tr:hover{
+  background:#1a1a1a;
+}
+
+.playlist-table td{
+  padding:6px 10px;
+  border-bottom:1px solid #222;
+}
+
+.playlist-active{
+  color:#1db954;
+  background:#1a1a1a;
+}
