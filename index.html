@@ -1,41 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>My Playlist</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Spotify Clone Interface</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="batik-bg"></div>
-
 <div id="app">
-  <div id="viewer-container"></div>
-  <div class="playlist-table">
-  <table id="songTable"></table>
-</div>
+    <aside class="sidebar">
+        <div class="nav-links">
+            <div class="nav-item active">🏠 Home</div>
+        </div>
+        <div class="library">
+            <div class="library-header">(Model by Nick Slough on poly.pizza)</div>
+            <div id="viewer-container"></div> 
+        </div>
+    </aside>
 
-  <div class="player">
-    <div class="track-title" id="trackTitle">Title</div>
-    
+    <main class="main-content">
+        <header class="content-header">
+            <div class="header-overlay"></div>
+            <div class="playlist-info">
+                <img src="cover.png" alt="Playlist Cover" class="playlist-img-file">
+                <div class="playlist-text">
+                    <span class="playlist-type">Public Playlist</span>
+                    <h1>mi música favorita</h1>
+                    <span class="playlist-stats">Ihsan • 19 songs</span>
+                </div>
+            </div>
+        </header>
 
-    <div class="controls">
-      <button id="shuffleBtn">🔀</button>
-      <button id="prevBtn">⏮</button>
-      <button id="playBtn">▶</button>
-      <button id="nextBtn">⏭</button>
+        <div class="content-body">
+            <div class="action-bar">
+                <button class="play-main-btn" id="playMainBtn">▶</button>
+                <button class="shuffle-main-btn" id="shuffleBtn">🔀</button>
+            </div>
+            
+            <table class="song-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Album</th>
+                        <th>🕒</th>
+                    </tr>
+                </thead>
+                <tbody id="songTable"></tbody>
+            </table>
+        </div>
+    </main>
 
-      <div class="progress">
-        <span id="currentTime">0:00</span>
-        <input type="range" id="progressBar" value="0">
-        <span id="duration">0:00</span>
-      </div>
+    <footer class="player">
+        <div class="current-track">
+            <div class="track-info">
+                <div class="track-title" id="trackTitle">Title</div>
+                <div class="track-artist">Unknown Artist</div>
+            </div>
+        </div>
 
-      <div class="volume">🔊 <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1"></div>
-    </div>
-  </div>
+        <div class="player-controls">
+            <div class="control-buttons">
+                <button id="prevBtn">⏮</button>
+                <button id="playBtn" class="play-circle">▶</button>
+                <button id="nextBtn">⏭</button>
+                <a id="downloadBtn" href="" download="" title="Download Track">⬇</a>
+            </div>
+            <div class="playback-bar">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="progressBar" value="0">
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="player-extra">
+            <div class="volume-control">
+                🔊 <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+            </div>
+        </div>
+    </footer>
 </div>
 
 <audio id="audio"></audio>
