@@ -28,40 +28,54 @@ const playBtn = document.getElementById("playBtn");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
 const shuffleBtn = document.getElementById("shuffleBtn");
+const downloadBtn = document.getElementById("downloadBtn");
 const progressBar = document.getElementById("progressBar");
 const trackTitle = document.getElementById("trackTitle");
+const trackArtist = document.querySelector(".track-artist");
 const currentTimeEl = document.getElementById("currentTime");
 const durationEl = document.getElementById("duration");
 const volumeSlider = document.getElementById("volumeSlider");
 const songTable = document.getElementById("songTable");
 
+function splitTitle(fullTitle) {
+  const parts = fullTitle.split(" - ");
+  if (parts.length > 1) return { artist: parts[0], title: parts[1] };
+  return { artist: "Unknown Artist", title: fullTitle };
+}
 
 function loadTrack(i){
+  const info = splitTitle(playlist[i].title);
   audio.src = playlist[i].src;
-  trackTitle.textContent = playlist[i].title;
+  trackTitle.textContent = info.title;
+  trackArtist.textContent = info.artist;
+  
+  // Update link download setiap ganti lagu
+  downloadBtn.href = playlist[i].src;
+  downloadBtn.download = playlist[i].title + ".mp3";
 }
-loadTrack(index);
-renderTable();
 
+function updatePlayButtons(isPlaying) {
+    const icon = isPlaying ? "⏸" : "▶";
+    playBtn.textContent = icon;
+    const mainBtn = document.getElementById("playMainBtn");
+    if(mainBtn) mainBtn.textContent = icon;
+}
 
 playBtn.onclick = ()=>{
-  if(audio.paused){audio.play();playBtn.textContent="⏸"}
-  else{audio.pause();playBtn.textContent="▶"}
+  if(audio.paused){ audio.play(); updatePlayButtons(true); }
+  else{ audio.pause(); updatePlayButtons(false); }
 }
 
+document.getElementById("playMainBtn").onclick = () => playBtn.onclick();
 nextBtn.onclick = ()=> nextTrack();
-prevBtn.onclick = ()=>{index=(index-1+playlist.length)%playlist.length;loadTrack(index);audio.play();}
-renderTable();
-shuffleBtn.onclick = ()=>{shuffle=!shuffle;shuffleBtn.style.color=shuffle?"#1db954":"white"}
+prevBtn.onclick = ()=>{index=(index-1+playlist.length)%playlist.length;loadTrack(index);audio.play();updatePlayButtons(true);renderTable();}
+shuffleBtn.onclick = ()=>{shuffle=!shuffle;shuffleBtn.style.color=shuffle?"#1db954":"#b3b3b3"}
 
 audio.onended = nextTrack;
-
 function nextTrack(){
   index = shuffle?Math.floor(Math.random()*playlist.length):(index+1)%playlist.length;
-  loadTrack(index);audio.play();
+  loadTrack(index);audio.play();updatePlayButtons(true);renderTable();
 }
-renderTable();
-
 
 audio.ontimeupdate = ()=>{
   progressBar.value = (audio.currentTime/audio.duration)*100||0;
@@ -73,75 +87,55 @@ volumeSlider.oninput = ()=> audio.volume = volumeSlider.value;
 
 function format(t){if(isNaN(t))return"0:00";let m=Math.floor(t/60);let s=Math.floor(t%60).toString().padStart(2,"0");return `${m}:${s}`}
 
+function renderTable(){
+  songTable.innerHTML = "";
+  playlist.forEach((song, i) => {
+    const info = splitTitle(song.title);
+    const row = document.createElement("tr");
+    if(i === index) row.classList.add("playlist-active");
+    row.innerHTML = `<td style="width: 40px">${i+1}</td><td><div class="table-title">${info.title}</div><div class="table-artist">${info.artist}</div></td><td>Single</td><td>--:--</td>`;
+    row.onclick = () => { index = i; loadTrack(index); audio.play(); updatePlayButtons(true); renderTable(); };
+    songTable.appendChild(row);
+  });
+}
+
 // ===== THREE.JS =====
 let scene,camera,renderer,controls,model;
-
 init3D();
 animate();
 
 function init3D(){
   const container=document.getElementById("viewer-container");
-
   scene=new THREE.Scene();
-  scene.background=new THREE.Color(0x121212);
-
+  scene.background=new THREE.Color(0x000000);
   camera=new THREE.PerspectiveCamera(60,container.clientWidth/container.clientHeight,0.1,1000);
   camera.position.set(0,1.8,3.5);
-
   renderer=new THREE.WebGLRenderer({antialias:true});
   renderer.setSize(container.clientWidth,container.clientHeight);
   container.appendChild(renderer.domElement);
-
   controls=new THREE.OrbitControls(camera,renderer.domElement);
   controls.enableDamping=true;
-
   scene.add(new THREE.AmbientLight(0xffffff,0.9));
   const dir=new THREE.DirectionalLight(0xffffff,1);
   dir.position.set(5,10,7);
   scene.add(dir);
-
   const loader=new THREE.GLTFLoader();
   loader.load("headphone.glb",g=>{
     model=g.scene;
     scene.add(model);
-
     const box=new THREE.Box3().setFromObject(model);
     const center=box.getCenter(new THREE.Vector3());
     model.position.sub(center);
-
     model.scale.set(6, 6, 6);
   },undefined,e=>console.error(e));
-
-  window.addEventListener("resize",()=>{
-    camera.aspect=container.clientWidth/container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth,container.clientHeight);
-  });
 }
 
 function animate(){
   requestAnimationFrame(animate);
   if(model) model.rotation.y += 0.003;
-  controls.update();
-  renderer.render(scene,camera);
+  if(controls) controls.update();
+  if(renderer) renderer.render(scene,camera);
 }
 
-function renderTable(){
-  songTable.innerHTML = "";
-  playlist.forEach((song,i)=>{
-    const row = document.createElement("tr");
-    row.innerHTML = `<td>${i+1}</td><td>${song.title}</td>`;
-
-    if(i === index) row.classList.add("playlist-active");
-
-    row.onclick = ()=>{
-      index = i;
-      loadTrack(index);
-      audio.play();
-      renderTable();
-    };
-
-    songTable.appendChild(row);
-  });
-}
-
+loadTrack(index);
+renderTable();
