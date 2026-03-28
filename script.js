@@ -17,7 +17,8 @@ const playlist = [
  {title:"Hindia - Secukupnya",src:"music/Hindia - Secukupnya.mp3"},
  {title:"John Denver - Take Me Home",src:"music/John Denver - Take Me Home.mp3"},
  {title:"Where'd All The Time Go - Dr. Dog",src:"music/Where'd All The Time Go_ - Dr. Dog.mp3"},
- {title:"She & Him - I Thought I Saw Your Face Today",src:"music/She & Him - I Thought I Saw Your Face Today (Official Lyric Video).mp3"}
+ {title:"She & Him - I Thought I Saw Your Face Today",src:"music/She & Him - I Thought I Saw Your Face Today (Official Lyric Video).mp3"},
+ {title:"Henry Moodie - drunk text",src:"music/Henry Moodie - drunk text.mp3"}
 ];
 
 let index = 0;
