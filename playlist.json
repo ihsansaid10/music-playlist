@@ -16,8 +16,9 @@
   { "title": "The Red Army - Glory, Glory, Man. United",                  "src": "music/Glory, Glory, Man. United.mp3",                                                                      "emoji": "🔴", "color": "#ef4444" },
   { "title": "Hindia - Secukupnya",                                       "src": "music/Hindia - Secukupnya.mp3",                                                                            "emoji": "🌿", "color": "#86efac" },
   { "title": "John Denver - Take Me Home",                                "src": "music/John Denver - Take Me Home.mp3",                                                                     "emoji": "🏡", "color": "#a3e635" },
-  { "title": "Where'd All The Time Go - Dr. Dog",                        "src": "music/Where'd All The Time Go_ - Dr. Dog.mp3",                                                             "emoji": "⏳", "color": "#fde68a" },
+  { "title": "Dr. Dog - Where'd All The Time Go",                        "src": "music/Where'd All The Time Go_ - Dr. Dog.mp3",                                                             "emoji": "⏳", "color": "#fde68a" },
   { "title": "Henry Moodie - drunk text",                                "src": "music/Henry Moodie - drunk text.mp3",                                                                      "emoji": "💬", "color": "#fde68a" },
   { "title": "Doechii - What it is",                                     "src": "music/Doechii - What it is.mp3",                                                                           "emoji": "❓", "color": "#FFFFFF" },
-  { "title": "She & Him - I Thought I Saw Your Face Today",              "src": "music/She & Him - I Thought I Saw Your Face Today (Official Lyric Video).mp3",                             "emoji": "🌻", "color": "#fcd34d" }
+  { "title": "She & Him - I Thought I Saw Your Face Today",              "src": "music/She & Him - I Thought I Saw Your Face Today (Official Lyric Video).mp3",                             "emoji": "🌻", "color": "#fcd34d" },
+  { "title": "Golden Brown (Slowed Down ver.) - The Stranglers",          "src": "music/Golden Brown Slowed Down Version - The Stranglers.mp3",                                            "emoji": "🍂", "color": "#A97142" }
 ]
