@@ -21,5 +21,6 @@
   { "title": "Doechii - What it is",                                     "src": "music/Doechii - What it is.mp3",                                                                           "emoji": "❓", "color": "#FFFFFF" },
   { "title": "She & Him - I Thought I Saw Your Face Today",              "src": "music/She & Him - I Thought I Saw Your Face Today (Official Lyric Video).mp3",                             "emoji": "🌻", "color": "#fcd34d" },
   { "title": "The Stranglers - Golden Brown (Slowed Down ver.)",          "src": "music/Golden Brown Slowed Down Version - The Stranglers.mp3",                                            "emoji": "🍂", "color": "#A97142" },
-  { "title": "Lord Huron - The Night We Met",                            "src": "music/Lord Huron - The Night We Met.mp3",                                                                  "emoji": "🕯️", "color": "#3A506B" }
+  { "title": "Lord Huron - The Night We Met",                            "src": "music/Lord Huron - The Night We Met.mp3",                                                                  "emoji": "🕯️", "color": "#3A506B" },
+  { "title": "Christina Perri - a thousand years)",                       "src": "music/Christian Perri - a thousand years.mp3",                                                            "emoji": "⏳", "color": "#D8A7B1" }
 ]
